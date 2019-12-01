@@ -14,9 +14,12 @@
   },
   "dependencies": {
     "@nuxtjs/axios": "^5.3.6",
+    "@nuxtjs/dotenv": "^1.4.1",
     "@nuxtjs/pwa": "^2.6.0",
     "cross-env": "^5.2.0",
     "date-fns": "^2.0.0-alpha.27",
+    "dotenv": "^8.2.0",
+    "node-fetch": "^2.6.0",
     "nuxt": "^2.3.4",
     "nuxt-purgecss": "^0.2.1"
   },

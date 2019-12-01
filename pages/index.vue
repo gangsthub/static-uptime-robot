@@ -4,11 +4,11 @@
       <RobotImage/>
       <div class="card flex flex-col ml-5">
         <h1 class="mb-2">Static Uptime Robot</h1>
-        <h2 class="mb-6">
+        <h2 class="mb-6" v-if="status">
           Currently your site is
           <span class="text-green">{{ status }}</span>
         </h2>
-        <p>Last checked:
+        <p><code>{{ URL }}</code> last checked:
           <PrettyTime :time="time"/>
         </p>
       </div>
@@ -17,23 +17,26 @@
 </template>
 
 <script>
-import RobotImage from '~/components/RobotImage.vue'
-import PrettyTime from '~/components/PrettyTime.vue'
+import RobotImage from '~/components/RobotImage.vue';
+import PrettyTime from '~/components/PrettyTime.vue';
 
 export default {
-  computed: {
-    status() {
-      return 'Up!'
-    },
-    time() {
-      return new Date().toString()
+  async asyncData({ $axios }) {
+    let ping = {};
+    try {
+      ping = await $axios.post('/.netlify/functions/ping');
+    } catch (error) {
+      // eslint-disable-next-line no-console
+      console.log(error);
     }
+    const { status, time, URL } = ping;
+    return { status, time, URL };
   },
   components: {
     RobotImage,
     PrettyTime
   }
-}
+};
 </script>
 
 <style scoped>

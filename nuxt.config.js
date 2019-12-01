@@ -1,7 +1,7 @@
-const pkg = require('./package')
+const pkg = require('./package');
 
 module.exports = {
-  mode: 'spa',
+  mode: 'universal',
 
   /*
   ** Headers of the page
@@ -27,30 +27,21 @@ module.exports = {
   css: ['~/assets/css/tailwind.css'],
 
   /*
-  ** Plugins to load before mounting the App
-  */
-  plugins: [],
-
-  /*
   ** Nuxt.js modules
   */
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa'
+    '@nuxtjs/pwa',
+    '@nuxtjs/dotenv'
   ],
-  /*
-  ** Axios module configuration
-  */
-  axios: {
-    // See https://github.com/nuxt-community/axios-module#options
-  },
+
   /*
   ** nuxt-purgecss module configuration
   */
   purgeCSS: {
     // See https://github.com/Developmint/nuxt-purgecss
-    mode: 'postcss',
+    mode: 'postcss'
   },
 
   /*
@@ -68,8 +59,8 @@ module.exports = {
           test: /\.(js|vue)$/,
           loader: 'eslint-loader',
           exclude: /(node_modules)/
-        })
+        });
       }
     }
   }
-}
+};
