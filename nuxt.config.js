@@ -38,7 +38,6 @@ module.exports = {
     '@nuxtjs/dotenv'
   ],
   axios: {
-    debug: true,
     proxy: true
   },
   proxy: {
