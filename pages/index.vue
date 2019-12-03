@@ -5,10 +5,10 @@
       <div class="card flex flex-col ml-5">
         <h1 class="mb-2">Static Uptime Robot</h1>
         <h2 class="mb-6" v-if="status">
-          Currently your site is
+          Currently <code>{{ URL }}</code> is
           <span class="text-green">{{ status }}</span>
         </h2>
-        <p><code>{{ URL }}</code> last checked:
+        <p>Last checked:
           <PrettyTime :time="time"/>
         </p>
       </div>
