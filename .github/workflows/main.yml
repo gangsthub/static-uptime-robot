@@ -1,4 +1,4 @@
-name: Scheduled build every minute
+name: Scheduled build every other minute
 on:
   schedule:
   - cron: '*/2 * * * *'
