@@ -34,7 +34,6 @@ module.exports = {
   modules: [
     // Doc: https://axios.nuxtjs.org/usage
     '@nuxtjs/axios',
-    '@nuxtjs/pwa',
     '@nuxtjs/dotenv'
   ],
   axios: {
@@ -43,7 +42,7 @@ module.exports = {
     retry: { retries: 1 }
   },
   proxy: {
-    '/ping': PRODUCTION_URL + '/.netlify/functions/ping'
+    '/.netlify/functions': PRODUCTION_URL + '/.netlify/functions'
   },
   /*
   ** nuxt-purgecss module configuration
