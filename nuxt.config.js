@@ -38,8 +38,7 @@ module.exports = {
   ],
   axios: {
     debug: true,
-    proxy: true,
-    retry: { retries: 1 }
+    proxy: true
   },
   proxy: {
     '/.netlify/functions': PRODUCTION_URL + '/.netlify/functions'
