@@ -24,7 +24,7 @@ export default {
   async asyncData({ $axios }) {
     let ping = {};
     try {
-      ping = await $axios.post('/.netlify/functions/ping');
+      ping = await $axios.$get('/.netlify/functions/ping');
     } catch (error) {
       // eslint-disable-next-line no-console
       console.log(error);

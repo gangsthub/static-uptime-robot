@@ -8,6 +8,14 @@ exports.handler = async function(_event, _context, _callback) {
 
   const URL = process.env.TARGET_SITE;
 
+  const headers = {
+    'Access-Control-Allow-Origin': '*',
+    'Access-Control-Allow-Headers':
+      'Origin, X-Requested-With, Content-Type, Accept',
+    'X-Powered-By	': 'Netlify',
+    'Content-Type': 'application/json; charset=utf-8'
+  };
+
   const time = new Date().toUTCString();
 
   /**
@@ -16,6 +24,7 @@ exports.handler = async function(_event, _context, _callback) {
    */
   const httpResponse = (status, code) => ({
     statusCode: code,
+    headers,
     body: JSON.stringify({ status, time, URL })
   });
 

@@ -1,5 +1,7 @@
 const pkg = require('./package');
 
+const PRODUCTION_URL = 'https://static-uptime-robot.netlify.com';
+
 module.exports = {
   mode: 'spa',
 
@@ -35,7 +37,14 @@ module.exports = {
     '@nuxtjs/pwa',
     '@nuxtjs/dotenv'
   ],
-
+  axios: {
+    debug: true,
+    proxy: true,
+    retry: { retries: 1 }
+  },
+  proxy: {
+    '/ping': PRODUCTION_URL + '/.netlify/functions/ping'
+  },
   /*
   ** nuxt-purgecss module configuration
   */

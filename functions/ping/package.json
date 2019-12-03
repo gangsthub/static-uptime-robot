@@ -1,8 +1,8 @@
 {
-  "name": "node-fetch",
-  "version": "1.0.0",
-  "description": "netlify functions:create - default template for node fetch function",
-  "main": "node-fetch.js",
+  "name": "nping",
+  "version": "1.0.1",
+  "description": "simple ping",
+  "main": "ping.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
@@ -11,7 +11,7 @@
     "serverless",
     "js"
   ],
-  "author": "Netlify",
+  "author": "Paul Melero",
   "license": "MIT",
   "dependencies": {
     "dotenv": "^8.2.0",
