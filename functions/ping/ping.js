@@ -1,5 +1,7 @@
-require('dotenv').config();
+const dotenv = require('dotenv');
 const fetch = require('node-fetch');
+
+dotenv.config();
 
 exports.handler = async function(_event, _context, _callback) {
   const UNAVAILABLE_RESPONSE = 'Not Found';
@@ -12,7 +14,6 @@ exports.handler = async function(_event, _context, _callback) {
     'Access-Control-Allow-Origin': '*',
     'Access-Control-Allow-Headers':
       'Origin, X-Requested-With, Content-Type, Accept',
-    'X-Powered-By	': 'Netlify',
     'Content-Type': 'application/json; charset=utf-8'
   };
 
