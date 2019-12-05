@@ -3,23 +3,33 @@ on:
   schedule:
     - cron: '*/5 * * * *'
 jobs:
-  build:
+  checkout:
     runs-on: ubuntu-latest
     steps:
-      - name: Install dependencies and run build
+      - name: Checkout
       - uses: actions/checkout@v1
+  install:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Install dependencies
       - uses: actions/setup-node@v1
         with:
           node-version: 10
       - run: npm ci
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Build project
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
       - run: npm run build
-
   deploy:
     needs: build
     runs-on: ubuntu-latest
     steps:
-      - name: Trigger deploy on Netlify
-      - uses: actions/setup-node@v1
+      - name: Deploy
+        uses: actions/setup-node@v1
         with:
           node-version: 10
         run: NETLIFY_SITE_ID=${NETLIFY_SITE_ID} NETLIFY_AUTH_TOKEN=${NETLIFY_AUTH_TOKEN} npm run deploy
