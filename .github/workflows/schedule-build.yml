@@ -1,12 +1,28 @@
-name: Scheduled build every other minute
+name: Scheduled build and deploy every 5 minutes
 on:
   schedule:
-  - cron: '*/2 * * * *'
+    - cron: '*/5 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-    - name: Trigger our build webhook on Netlify
-      run: curl -s -X POST "https://api.netlify.com/build_hooks/${TOKEN}"
-      env:
-        TOKEN: ${{ secrets.NETLIFY_CRON_BUILD_HOOK }}
+      - name: Install dependencies and run build
+      - uses: actions/checkout@v1
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+      - run: npm ci
+      - run: npm run build
+
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    steps:
+      - name: Trigger deploy on Netlify
+      - uses: actions/setup-node@v1
+        with:
+          node-version: 10
+        run: NETLIFY_SITE_ID=${NETLIFY_SITE_ID} NETLIFY_AUTH_TOKEN=${NETLIFY_AUTH_TOKEN} npm run deploy
+        env:
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_CRON_BUILD_HOOK }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
