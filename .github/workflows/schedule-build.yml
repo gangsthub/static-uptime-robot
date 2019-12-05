@@ -1,4 +1,4 @@
-name: Scheduled build and deploy every 5 minutes
+name: Scheduled build and deploy every other minute
 on:
   schedule:
     - cron: '* * * * *'
