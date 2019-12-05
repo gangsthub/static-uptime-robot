@@ -1,7 +1,7 @@
-name: Scheduled build and deploy every 5 minutes
+name: Scheduled build and deploy every other minute
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/2 * * * *'
 jobs:
   build_and_deploy:
     runs-on: ubuntu-latest
