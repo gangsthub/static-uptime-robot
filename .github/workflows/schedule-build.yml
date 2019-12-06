@@ -18,9 +18,9 @@ jobs:
         run: npm ci
 
       - name: Build project
-        run: npm run build
-
-      - name: Deploy
-        run: curl -s -X POST "https://api.netlify.com/build_hooks/${TOKEN}"
+        run: echo $NETLIFY_SITE_ID
+        run: echo $NETLIFY_AUTH_TOKEN
+        run: NETLIFY_AUTH_TOKEN=$NETLIFY_AUTH_TOKEN NETLIFY_SITE_ID=$NETLIFY_SITE_ID npm run build
         env:
-          TOKEN: ${{ secrets.NETLIFY_CRON_BUILD_HOOK }}
+          NETLIFY_AUTH_TOKEN: ${{ secrets.NETLIFY_AUTH_TOKEN }}
+          NETLIFY_SITE_ID: ${{ secrets.NETLIFY_SITE_ID }}
