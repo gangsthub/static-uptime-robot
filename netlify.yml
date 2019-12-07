@@ -1,8 +1,8 @@
 build:
   functions: lambda
-  command: npm run build
   publish: dist
   lifecycle:
+    build: npm run build
     onSuccess:
       - netlify deploy --prod
 dev:
