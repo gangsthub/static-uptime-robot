@@ -3,7 +3,5 @@ build:
   publish: dist
   lifecycle:
     build: npm run build
-    onSuccess:
-      - netlify deploy --prod
 dev:
   command: npm run dev
