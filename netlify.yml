@@ -1,7 +1,6 @@
 build:
   functions: functions
   publish: dist
-  lifecycle:
-    build: npm run build
+  command: npm run generate
 dev:
   command: npm run dev
