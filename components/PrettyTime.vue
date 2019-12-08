@@ -1,33 +1,38 @@
 <template>
-  <span :title="time">
-    {{ computedTime }}
-  </span>
+  <time :title="time">
+    {{ computedTime }} ago.
+  </time>
 </template>
 <script>
 import { formatDistance } from 'date-fns';
+
+const INTERVAL = 5000;
+
 export default {
   name: 'Time',
   props: {
     time: {
       type: String,
-      default: ''
-    },
-    fallbackString: {
-      type: String,
-      default: ''
+      default: () => new Date().toLocaleString()
     }
   },
+  data() {
+    return {
+      rn: new Date()
+    };
+  },
   computed: {
-    rn() {
-      return new Date();
+    builtDate() {
+      return new Date(this.time);
     },
     computedTime() {
-      if (this.time) {
-        const builtDate = new Date(this.time);
-        return formatDistance(builtDate, this.rn);
-      }
-      return this.fallbackString || 'On last deploy';
+      return formatDistance(this.builtDate, this.rn);
     }
+  },
+  created() {
+    setInterval(() => {
+      this.rn = new Date();
+    }, INTERVAL);
   }
 };
 </script>
