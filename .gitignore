@@ -86,3 +86,6 @@ sw.*
 # Local Netlify folder
 .netlify
 /lambda
+
+# Build files
+config.js

@@ -4,3 +4,7 @@ build:
   command: npm run generate
 dev:
   command: npm run dev
+
+template:
+  environment:
+    TARGET_SITE: 'https://graficos.net'

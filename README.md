@@ -1,7 +1,17 @@
 # Static Uptime
 
-Automatically build and call a serverless function to test if a site (from environment variables `env.TARGET_SITE`) is
+Automatically check through a serverless function call whether a site (from environment variables `env.TARGET_SITE`) is
 up and running.
+
+## Configuration
+
+Before creating the site, Netlify will ask you to fill required the following environment variable:
+
+- `TARGET_SITE`: The (absolute) URL of the site or service you want to check.
+
+## Deploy your own!
+
+[![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gangsthub/static-uptime-robot/)
 
 ## Build Setup
 
@@ -12,12 +22,10 @@ $ npm install
 # serve with hot reload at localhost:3000
 $ npm run dev
 
-# build for production and launch server
-$ npm run build
-$ npm start
-
 # generate static project
 $ npm run generate
 ```
 
-For detailed explanation on how things work, checkout [Nuxt.js docs](https://nuxtjs.org).
+## Previous art
+
+- Netlify StatusKit - https://github.com/netlify/netlify-statuskit

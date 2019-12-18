@@ -6,10 +6,9 @@
   "homepage": "https://static-uptime-robot.netlify.com",
   "private": true,
   "scripts": {
-    "dev": "nuxt",
-    "build": "nuxt build",
-    "start": "nuxt start",
-    "generate": "nuxt generate",
+    "dev": "npm run config && nuxt",
+    "generate": "npm run config && nuxt generate",
+    "config": "node scripts/ping_IO.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },

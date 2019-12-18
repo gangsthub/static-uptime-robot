@@ -22,17 +22,19 @@
 import RobotImage from '~/components/RobotImage.vue';
 import PrettyTime from '~/components/PrettyTime.vue';
 
+const { STATUS_TEXT, TIME, URL } = require('~/config.js');
+
 export default {
-  async asyncData({ $axios }) {
-    let ping = {};
-    try {
-      ping = await $axios.$get('/.netlify/functions/ping');
-    } catch (error) {
-      // eslint-disable-next-line no-console
-      console.log(error);
+  computed: {
+    status() {
+      return STATUS_TEXT;
+    },
+    time() {
+      return TIME;
+    },
+    URL() {
+      return URL;
     }
-    const { status, time, URL } = ping;
-    return { status, time, URL };
   },
   components: {
     RobotImage,
