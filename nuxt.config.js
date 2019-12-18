@@ -1,6 +1,12 @@
 const pkg = require('./package');
 
-const PRODUCTION_URL = 'https://static-uptime-robot.netlify.com';
+const AXIOS_CONFIG = {
+  proxy: true
+};
+
+const PROXY_CONFIG = {
+  '/.netlify/functions': pkg.homepage + '/.netlify/functions'
+};
 
 module.exports = {
   mode: 'spa',
@@ -38,12 +44,10 @@ module.exports = {
     '@nuxtjs/proxy',
     '@nuxtjs/dotenv'
   ],
-  axios: {
-    proxy: true
-  },
-  proxy: {
-    '/.netlify/functions': PRODUCTION_URL + '/.netlify/functions'
-  },
+
+  axios: AXIOS_CONFIG,
+  proxy: PROXY_CONFIG,
+
   /*
   ** nuxt-purgecss module configuration
   */
