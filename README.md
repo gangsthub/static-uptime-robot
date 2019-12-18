@@ -3,15 +3,13 @@
 Automatically check through a serverless function call whether a site (from environment variables `env.TARGET_SITE`) is
 up and running.
 
-## Configuration
-
-Before creating the site, Netlify will ask you to fill required the following environment variable:
-
-- `TARGET_SITE`: The (absolute) URL of the site or service you want to check.
-
 ## Deploy your own!
 
 [![Deploy to Netlify](https://www.netlify.com/img/deploy/button.svg)](https://app.netlify.com/start/deploy?repository=https://github.com/gangsthub/static-uptime-robot)
+
+You'll need to add this environment variable in your Netlify admin site after initially forking it (`Settings > Environments > Environment variables`):
+
+- `TARGET_SITE`: The (absolute) URL of the site or service you want to check.
 
 ## Build Setup
 
