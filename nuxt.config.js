@@ -1,12 +1,6 @@
 const pkg = require('./package');
 
-const AXIOS_CONFIG = {
-  proxy: true
-};
-
-const PROXY_CONFIG = {
-  '/.netlify/functions': pkg.homepage + '/.netlify/functions'
-};
+const APP_NAME = 'Static Uptime Robot';
 
 module.exports = {
   mode: 'spa',
@@ -15,7 +9,7 @@ module.exports = {
   ** Headers of the page
   */
   head: {
-    title: pkg.name,
+    title: APP_NAME,
     meta: [
       { charset: 'utf-8' },
       { name: 'viewport', content: 'width=device-width, initial-scale=1' },
@@ -38,15 +32,7 @@ module.exports = {
   /*
   ** Nuxt.js modules
   */
-  modules: [
-    // Doc: https://axios.nuxtjs.org/usage
-    '@nuxtjs/axios',
-    '@nuxtjs/proxy',
-    '@nuxtjs/dotenv'
-  ],
-
-  axios: AXIOS_CONFIG,
-  proxy: PROXY_CONFIG,
+  modules: [],
 
   /*
   ** nuxt-purgecss module configuration
