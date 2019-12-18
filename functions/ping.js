@@ -40,7 +40,7 @@ exports.handler = async function(_event, _context, _callback) {
       return notFoundError;
     }
 
-    return httpResponse('Up!', 200);
+    return httpResponse('All the way up!', 200);
   } catch (err) {
     console.log(err); // output to netlify function log
 
