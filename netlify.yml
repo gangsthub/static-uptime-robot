@@ -4,6 +4,3 @@ build:
   lifecycle:
     onBuild:
       - npm run generate
-
-dev:
-  command: npm run dev

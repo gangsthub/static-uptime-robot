@@ -6,7 +6,7 @@
         <h1 class="mb-2">Static Uptime Robot</h1>
         <h2 class="mb-6" v-if="status">
           Currently
-          <a :href="URL" target="_blank" rel="me noopener noreferrer"><code>{{ URL }}</code></a>
+          <a :href="URL" target="_blank" rel="me noopener noreferrer"><code class="whitespace-normal">{{ URL }}</code></a>
           is
           <span class="text-green">{{ status }}</span>
         </h2>

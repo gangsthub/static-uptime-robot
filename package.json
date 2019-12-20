@@ -7,7 +7,8 @@
   "private": true,
   "scripts": {
     "dev": "npm run config && nuxt",
-    "generate": "node scripts/ping_IO.js && nuxt generate",
+    "generate": "npm run config && nuxt generate",
+    "config": "node scripts/ping_IO.js",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
@@ -17,7 +18,8 @@
     "netlify-cli": "^2.22.0",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.3.4",
-    "nuxt-purgecss": "^0.2.1"
+    "nuxt-purgecss": "^0.2.1",
+    "sendmail": "^1.6.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",

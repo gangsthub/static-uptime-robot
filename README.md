@@ -27,3 +27,9 @@ $ npm run generate
 ## Previous art
 
 - Netlify StatusKit - https://github.com/netlify/netlify-statuskit
+
+## TODO
+
+- [ ] Send mail on downtime
+- [ ] Collect monthly statistics and display actual uptime.
+- [ ] Customize robot (color, expression) if it's down.
