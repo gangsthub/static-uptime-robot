@@ -2,7 +2,7 @@ const mailgun = require('mailgun-js');
 const {
   env: { MAILGUN_DOMAIN, MAILGUN_API_KEY }
 } = process;
-const mg = mailgun({ apiKey: MAILGUN_API_KEY, MAILGUN_DOMAIN: MAILGUN_DOMAIN });
+const mg = mailgun({ apiKey: MAILGUN_API_KEY, domain: MAILGUN_DOMAIN });
 
 exports.handler = (_event, _context, callback) => {
   if (!process.env.CONTACT_EMAIL) {
