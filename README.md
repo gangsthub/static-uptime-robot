@@ -31,6 +31,6 @@ $ npm run generate
 
 ## TODO
 
-- [ ] Send mail on downtime
+- [x] Send mail on downtime
 - [ ] Collect monthly statistics and display actual uptime.
 - [ ] Customize robot (color, expression) if it's down.
