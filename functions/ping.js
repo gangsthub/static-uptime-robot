@@ -1,13 +1,21 @@
+const url = require('url');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
 
 dotenv.config();
 
-const { TARGET_SITE, MAILGUN_DOMAIN, MAILGUN_API_KEY } = process.env;
+const {
+  TARGET_SITE,
+  MAILGUN_DOMAIN,
+  MAILGUN_API_KEY,
+  ROBOT_DEPLOY_URL
+} = process.env;
 
 const sideEffectSendAlert = () => {
-  const endpoint =
-    process.env.ROBOT_DEPLOY_URL + '/.netlify/functions/send-alert';
+  const endpoint = url.resolve(
+    ROBOT_DEPLOY_URL,
+    '/.netlify/functions/send-alert'
+  );
   fetch(endpoint);
 };
 
@@ -54,7 +62,7 @@ exports.handler = async function(_event, _context, _callback) {
       return notFoundError;
     }
 
-    if (MAILGUN_DOMAIN && MAILGUN_API_KEY) {
+    if (MAILGUN_DOMAIN && MAILGUN_API_KEY && ROBOT_DEPLOY_URL) {
       sideEffectSendAlert();
     }
 
