@@ -22,10 +22,7 @@ module.exports = {
  * Will call the ping serverless function and return JSON formar
  */
 const getPingJson = async () => {
-  const endpoint = url.resolve(
-    ROBOT_DEPLOY_URL,
-    '/.netlify/functions/send-alert'
-  );
+  const endpoint = url.resolve(ROBOT_DEPLOY_URL, '/.netlify/functions/ping');
   return await (await fetch(endpoint)).json();
 };
 

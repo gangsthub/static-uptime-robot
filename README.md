@@ -12,6 +12,14 @@ You'll need to add this environment variable in your Netlify admin site after in
 - `TARGET_SITE`: The (absolute) URL of the site or service you want to check.
 - `ROBOT_DEPLOY_URL`: That's the homepage of your site (deployed on Netlify) and it's the base URL for the lambda functions.
 
+### Optionally send mails:
+
+If you want your robot to notify you on downtime (using a Mailgun account), add these variables:
+
+- `CONTACT_EMAIL`
+- `MAILGUN_DOMAIN`
+- `MAILGUN_API_KEY`
+
 ## Build Setup
 
 ```bash
