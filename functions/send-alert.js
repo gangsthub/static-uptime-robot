@@ -5,7 +5,7 @@ const {
 const mg = mailgun({
   apiKey: MAILGUN_API_KEY,
   domain: MAILGUN_DOMAIN,
-  host: 'https://api.eu.mailgun.net'
+  host: 'api.eu.mailgun.net'
 });
 
 exports.handler = (_event, _context, callback) => {
