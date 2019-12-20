@@ -1,7 +1,7 @@
-name: Scheduled build every 5 minutes
+name: Scheduled build every half an hour
 on:
   schedule:
-    - cron: '*/5 * * * *'
+    - cron: '*/30 * * * *'
 jobs:
   build:
     runs-on: ubuntu-latest
