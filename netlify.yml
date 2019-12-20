@@ -3,7 +3,6 @@ build:
   publish: dist
   lifecycle:
     onBuild:
-      - node scripts/ping_IO.js
       - npm run generate
 
 dev:

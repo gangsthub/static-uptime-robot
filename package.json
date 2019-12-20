@@ -7,7 +7,7 @@
   "private": true,
   "scripts": {
     "dev": "npm run config && nuxt",
-    "generate": "nuxt generate",
+    "generate": "node scripts/ping_IO.js && nuxt generate",
     "lint": "eslint --ext .js,.vue --ignore-path .gitignore .",
     "precommit": "npm run lint"
   },
