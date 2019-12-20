@@ -32,7 +32,7 @@ exports.handler = (_event, _context, callback) => {
     } else {
       callback(null, {
         statusCode: 200,
-        body: '🎯 ' + body.message || ''
+        body: '🎯 ' + (body && body.message) || 'Email sent!'
       });
     }
   });
