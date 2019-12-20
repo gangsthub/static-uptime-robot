@@ -1,8 +1,8 @@
 const mailgun = require('mailgun-js');
 const {
-  env: { DOMAIN, MAILGUN_API_KEY }
+  env: { MAILGUN_DOMAIN, MAILGUN_API_KEY }
 } = process;
-const mg = mailgun({ apiKey: MAILGUN_API_KEY, domain: DOMAIN });
+const mg = mailgun({ apiKey: MAILGUN_API_KEY, MAILGUN_DOMAIN: MAILGUN_DOMAIN });
 
 exports.handler = (_event, _context, callback) => {
   if (!process.env.CONTACT_EMAIL) {
@@ -15,7 +15,7 @@ exports.handler = (_event, _context, callback) => {
   const homepage = 'static-uptime-robot.netlify.com';
 
   const descriptor = {
-    from: `"Robot" <no-reply@${DOMAIN}>`,
+    from: `"Robot" <no-reply@${MAILGUN_DOMAIN}>`,
     to: process.env.CONTACT_EMAIL,
     subject: `Site ${process.env.TARGET_SITE} is down at the moment!`,
     html: `😱 Check out the status page on <a href="${homepage}">${homepage}</a>`
