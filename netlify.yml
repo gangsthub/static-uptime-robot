@@ -1,10 +1,10 @@
 build:
   functions: functions
   publish: dist
-  command: npm run generate
+  lifecycle:
+    build:
+      - npm run config
+      - npm run generate
+
 dev:
   command: npm run dev
-
-template:
-  environment:
-    TARGET_SITE: 'https://graficos.net'
