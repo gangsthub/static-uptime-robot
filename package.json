@@ -3,7 +3,6 @@
   "version": "1.0.0",
   "description": "uptime",
   "author": "paul_melero",
-  "homepage": "https://static-uptime-robot.netlify.com",
   "private": true,
   "scripts": {
     "dev": "npm run config && nuxt",

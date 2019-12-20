@@ -3,12 +3,18 @@ const fetch = require('node-fetch');
 
 dotenv.config();
 
+const { TARGET_SITE, MAILGUN_DOMAIN, MAILGUN_API_KEY } = process.env;
+
+const sideEffectSendAlert = () => {
+  const endpoint =
+    process.env.ROBOT_DEPLOY_URL + '/.netlify/functions/send-alert';
+  fetch(endpoint);
+};
+
 exports.handler = async function(_event, _context, _callback) {
   const UNAVAILABLE_RESPONSE = 'Not Found';
   // https://nodejs.org/api/errors.html#errors_common_system_errors
   const NODE_ENOTFOUND = 'ENOTFOUND';
-
-  const URL = process.env.TARGET_SITE;
 
   const headers = {
     'Access-Control-Allow-Origin': '*',
@@ -26,13 +32,13 @@ exports.handler = async function(_event, _context, _callback) {
   const httpResponse = (status, code) => ({
     statusCode: code,
     headers,
-    body: JSON.stringify({ status, time, URL })
+    body: JSON.stringify({ status, time, URL: TARGET_SITE })
   });
 
   const notFoundError = httpResponse('Unreachable', 404);
 
   try {
-    const response = await fetch(URL, {
+    const response = await fetch(TARGET_SITE, {
       method: 'OPTIONS'
     }).then(async r => await r.text());
 
@@ -46,6 +52,10 @@ exports.handler = async function(_event, _context, _callback) {
 
     if (err.code && err.code === NODE_ENOTFOUND) {
       return notFoundError;
+    }
+
+    if (MAILGUN_DOMAIN && MAILGUN_API_KEY) {
+      sideEffectSendAlert();
     }
 
     return httpResponse('Down', 500);

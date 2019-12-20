@@ -10,6 +10,7 @@ up and running.
 You'll need to add this environment variable in your Netlify admin site after initially forking it (`Settings > Environments > Environment variables`):
 
 - `TARGET_SITE`: The (absolute) URL of the site or service you want to check.
+- `ROBOT_DEPLOY_URL`: That's the homepage of your site (deployed on Netlify) and it's the base URL for the lambda functions.
 
 ## Build Setup
 

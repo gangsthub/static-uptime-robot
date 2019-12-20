@@ -2,7 +2,6 @@ const fs = require('fs');
 const path = require('path');
 const dotenv = require('dotenv');
 const fetch = require('node-fetch');
-const pkg = require('../package');
 
 dotenv.config();
 
@@ -22,7 +21,7 @@ module.exports = {
  * Will call the ping serverless function and return JSON formar
  */
 const getPingJson = async () => {
-  const endpoint = pkg.homepage + '/.netlify/functions/ping';
+  const endpoint = process.env.ROBOT_DEPLOY_URL + '/.netlify/functions/ping';
   return await (await fetch(endpoint)).json();
 };
 
