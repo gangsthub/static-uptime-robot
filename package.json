@@ -15,11 +15,11 @@
   "dependencies": {
     "date-fns": "^2.0.0-alpha.27",
     "dotenv": "^8.2.0",
+    "mailgun-js": "^0.22.0",
     "netlify-cli": "^2.22.0",
     "node-fetch": "^2.6.0",
     "nuxt": "^2.3.4",
-    "nuxt-purgecss": "^0.2.1",
-    "sendmail": "^1.6.1"
+    "nuxt-purgecss": "^0.2.1"
   },
   "devDependencies": {
     "@nuxtjs/eslint-config": "^0.0.1",
