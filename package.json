@@ -16,7 +16,7 @@
     "dotenv": "^8.2.0",
     "mailgun-js": "^0.22.0",
     "netlify-cli": "^2.22.0",
-    "node-fetch": "^2.6.0",
+    "node-fetch": "^2.6.1",
     "nuxt": "^2.3.4",
     "nuxt-purgecss": "^0.2.1"
   },
